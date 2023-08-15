@@ -1,3 +1,44 @@
 body {
     background-color: aqua;
 }
+
+#bigContainer {
+    display: flex;
+    height: 1000px;
+    justify-content: center;
+}
+
+#left {
+    width: 20%;
+    text-align: center;
+}
+
+#center {
+    width: 60%;
+    align-items: center;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px;
+    align-items: center;
+    justify-content: center;
+}
+
+.square {
+    height: 100px;
+    width: 100px;
+    background-color: black;
+    /* border: 10px, red; */
+}
+
+#right {
+    width: 20%;
+    text-align: center;
+}
+
+#winContainer {
+    display: flex;
+    justify-content: space-between;
+}
