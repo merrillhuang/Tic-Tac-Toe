@@ -30,7 +30,7 @@ body {
     height: 100px;
     width: 100px;
     background-color: black;
-    /* border: 10px, red; */
+    border: 5px red solid;
 }
 
 #right {
