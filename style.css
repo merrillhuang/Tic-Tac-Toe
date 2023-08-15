@@ -24,6 +24,7 @@ body {
     grid-template-rows: 100px 100px 100px;
     align-items: center;
     justify-content: center;
+    padding-top: 25%;
 }
 
 .square {
