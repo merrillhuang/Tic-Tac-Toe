@@ -57,7 +57,7 @@ function checkGameStatus(symbol) {
         (squares[1].innerText === symbol && squares[4].innerText === symbol && squares[7].innerText === symbol) ||
         (squares[2].innerText === symbol && squares[5].innerText === symbol && squares[8].innerText === symbol) || //columns
         (squares[0].innerText === symbol && squares[4].innerText === symbol && squares[8].innerText === symbol) || 
-        (squares[3].innerText === symbol && squares[4].innerText === symbol && squares[6].innerText === symbol)    //diangonals
+        (squares[2].innerText === symbol && squares[4].innerText === symbol && squares[6].innerText === symbol)    //diangonals
     ){
         alert(`${symbol} won!`)
         endGame()
