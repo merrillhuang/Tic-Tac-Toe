@@ -50,3 +50,9 @@ body {
 .clickable {
     background-color: black;
 }
+
+.historyItem {
+    /* height: 50px; */
+    /* width: 50px; */
+    /* color: white; */
+}

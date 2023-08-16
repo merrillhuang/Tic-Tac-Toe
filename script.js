@@ -1,5 +1,3 @@
-console.log("Here!")
-
 let currentSymbol = "X"
 let xWins = 0
 let oWins = 0
@@ -8,6 +6,7 @@ let ties = 0
 const xWinsDisplay = document.querySelector("#xWins")
 const oWinsDisplay = document.querySelector("#oWins")
 const tiesDisplay = document.querySelector("#ties")
+const gameHistory = document.querySelector("#gameHistory")
 
 const newGameButton = document.querySelector("#newgame").addEventListener("click", newGame)
 
@@ -73,6 +72,7 @@ function checkGameStatus(symbol) {
         if (symbol === "O") {
             oWins++
         }
+        createNewHistoryItem(symbol)
         endGame()
         return
     }
@@ -85,8 +85,17 @@ function checkGameStatus(symbol) {
     if (allFilled) {
         ties++
         alert("It's a tie!")
+        createNewHistoryItem("tie")
         endGame()
     }
+}
+
+function createNewHistoryItem(symbol) {
+    const newHistoryItem = document.createElement("div")
+    newHistoryItem.className = "historyItem"
+    newHistoryItem.dataset.winner = symbol
+    gameHistory.appendChild(newHistoryItem)
+    
 }
 
 function endGame() {
@@ -95,4 +104,13 @@ function endGame() {
     xWinsDisplay.innerText = `X: ${xWins} wins`
     oWinsDisplay.innerText = `O: ${oWins} wins`
     tiesDisplay.innerText = `Ties: ${ties}`
+
+    for (let i = 0; i < gameHistory.children.length; i++) {
+        if (gameHistory.children[i].dataset.winner === "tie") {
+            gameHistory.children[i].innerText = `Game ${i+1}: Tie Game!`
+        }
+        else {
+            gameHistory.children[i].innerText = `Game ${i+1}: ${gameHistory.children[i].dataset.winner} won!`
+        }
+    }
 }
