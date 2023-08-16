@@ -30,7 +30,7 @@ body {
 .square {
     height: 100px;
     width: 100px;
-    background-color: black;
+    background-color: white;
     border: 1px red solid;
     color: coral;
     text-align: center;
@@ -45,4 +45,8 @@ body {
 #winContainer {
     display: flex;
     justify-content: space-between;
+}
+
+.clickable {
+    background-color: black;
 }

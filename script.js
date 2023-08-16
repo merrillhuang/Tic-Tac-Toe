@@ -6,13 +6,19 @@ const newGameButton = document.querySelector("#newgame").addEventListener("click
 
 const squares = document.querySelectorAll(".square")
 squares.forEach((square) => {
-    square.addEventListener("click", () => {
-        square.innerText = currentSymbol
-        changePlayer(currentSymbol)
-    })
+    square.classList.add("clickable")
+    square.addEventListener("click", placeSymbol)
 })
+    
 
 const turnDisplay = document.querySelector("#turnDisplay")
+
+const board = document.querySelector("#boardContainer").addEventListener("click", clicked)
+
+function placeSymbol(e) {
+    e.target.innerText = currentSymbol
+    changePlayer(currentSymbol)
+}
 
 function changePlayer(symbol) {
     if (currentSymbol === "X") {
@@ -30,4 +36,9 @@ function newGame() {
     })
     currentSymbol = "X"
     turnDisplay.innerText = ""
+}
+
+function clicked(e) {
+    e.target.removeEventListener("click", placeSymbol)
+    e.target.classList.remove("clickable")
 }
