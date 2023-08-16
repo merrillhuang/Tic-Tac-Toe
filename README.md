@@ -20,3 +20,11 @@ extra features
     game history
     hover effects for valid turns
     online multiplayer --- platinum feature
+
+8/15
+Completed initial layout, ready to start coding logic
+
+8/16
+Comepleted tic-tac-toe logic, playable game
+Bonus features added: Game history, win/tie counters
+To-do: local storage, better styling, future---> online multiplayer
