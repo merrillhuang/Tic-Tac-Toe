@@ -33,6 +33,8 @@ function changePlayer(symbol) {
 function newGame() {
     squares.forEach((square) => {
         square.innerText = ""
+        square.classList.add("clickable")
+        square.addEventListener("click", placeSymbol)
     })
     currentSymbol = "X"
     turnDisplay.innerText = ""
