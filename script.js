@@ -62,6 +62,15 @@ function checkGameStatus(symbol) {
         alert(`${symbol} won!`)
         endGame()
     }
+    let allFilled = true
+    squares.forEach((square) => {
+        if (square.innerText === "") {
+            allFilled = false
+        }
+    })
+    if (allFilled) {
+        alert("It's a tie!")
+    }
 }
 
 function endGame() {
