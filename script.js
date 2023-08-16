@@ -28,4 +28,6 @@ function newGame() {
     squares.forEach((square) => {
         square.innerText = ""
     })
+    currentSymbol = "X"
+    turnDisplay.innerText = ""
 }
