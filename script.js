@@ -106,13 +106,10 @@ function endGame() {
     xWinsDisplay.innerText = `X: ${xWins} wins`
     oWinsDisplay.innerText = `O: ${oWins} wins`
     tiesDisplay.innerText = `Ties: ${ties}`
-
-    for (let i = 0; i < gameHistory.children.length; i++) {
-        if (gameHistory.children[i].dataset.winner === "tie") {
-            gameHistory.children[i].innerText = `Game ${i+1}: Tie Game!`
-        }
-        else {
-            gameHistory.children[i].innerText = `Game ${i+1}: ${gameHistory.children[i].dataset.winner} won!`
-        }
+    if (gameHistory.children[gameHistory.children.length - 1].dataset.winner === "tie") {
+        gameHistory.children[gameHistory.children.length - 1].innerText = `Game ${gameHistory.children.length}: Tie Game!`
+    }
+    else {
+        gameHistory.children[gameHistory.children.length - 1].innerText = `Game ${gameHistory.children.length}: ${gameHistory.children[gameHistory.children.length - 1].dataset.winner} won!`
     }
 }
