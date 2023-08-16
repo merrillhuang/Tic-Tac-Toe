@@ -1,6 +1,6 @@
 console.log("Here!")
 
-let currentSymbol = "x"
+let currentSymbol = "X"
 
 const newGameButton = document.querySelector("#newgame").addEventListener("click", newGame)
 
@@ -12,13 +12,16 @@ squares.forEach((square) => {
     })
 })
 
+const turnDisplay = document.querySelector("#turnDisplay")
+
 function changePlayer(symbol) {
-    if (currentSymbol === "x") {
-        currentSymbol = "o"    
+    if (currentSymbol === "X") {
+        currentSymbol = "O"
     }
-    else if (currentSymbol === "o") {
-        currentSymbol = "x"
+    else if (currentSymbol === "O") {
+        currentSymbol = "X"
     }
+    turnDisplay.innerText = `It's ${currentSymbol}'s turn!` 
 }
 
 function newGame() {
