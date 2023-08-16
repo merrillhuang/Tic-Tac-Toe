@@ -25,6 +25,7 @@ extra features
 Completed initial layout, ready to start coding logic
 
 8/16
-Comepleted tic-tac-toe logic, playable game
+Comepleted tic-tac-toe logic, playable game, completed all required user stories
 Bonus features added: Game history, win/tie counters
 To-do: local storage, better styling, future---> online multiplayer
+    potentially update check winner logic, not very clean right now
