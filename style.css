@@ -18,6 +18,10 @@ body {
     align-items: center;
 }
 
+#winnerDisplay {
+    text-align: center;
+}
+
 #boardContainer {
     display: grid;
     grid-template-columns: 100px 100px 100px;
@@ -51,8 +55,8 @@ body {
     background-color: black;
 }
 
-.historyItem {
+/* .historyItem {
     /* height: 50px; */
     /* width: 50px; */
     /* color: white; */
-}
+/* }  */
