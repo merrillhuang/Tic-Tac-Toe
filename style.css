@@ -18,7 +18,7 @@ body {
     align-items: center;
 }
 
-#board {
+#boardContainer {
     display: grid;
     grid-template-columns: 100px 100px 100px;
     grid-template-rows: 100px 100px 100px;
@@ -31,7 +31,10 @@ body {
     height: 100px;
     width: 100px;
     background-color: black;
-    border: 5px red solid;
+    border: 1px red solid;
+    color: coral;
+    text-align: center;
+    font-size: 40px;
 }
 
 #right {
