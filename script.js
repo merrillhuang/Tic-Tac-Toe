@@ -1,9 +1,7 @@
 let currentSymbol = "X"
-
 let xWins = 0
 let oWins = 0
 let ties = 0
-
 
 const xWinsDisplay = document.querySelector("#xWins")
 const oWinsDisplay = document.querySelector("#oWins")
@@ -14,16 +12,18 @@ if (localStorage.length != 0) {
     xWins = localStorage.getItem("xWins")
     oWins = localStorage.getItem("oWins")
     ties = localStorage.getItem("ties")
-    // gameHistory = localStorage.getItem
+    gameHistory.innerHTML = localStorage.getItem("gameHistory")
     updateCounterDisplays()
 }
 
 const newGameButton = document.querySelector("#newgame").addEventListener("click", newGame)
+
 const resetHistoryButton = document.querySelector("#resetHistory").addEventListener("click", () => {
     localStorage.clear()
     xWins = 0
     oWins = 0
     ties = 0
+    gameHistory.innerHTML = ""
     updateCounterDisplays()
 })
 
@@ -84,7 +84,7 @@ function checkGameStatus(symbol) {
     ){
         setTimeout(() => {
             alert(`${symbol} won!`)
-        }, 5)
+        }, 10)
         if (symbol === "X") {
             xWins++
         }
@@ -103,9 +103,9 @@ function checkGameStatus(symbol) {
     })
     if (allFilled) {
         ties++
-        setTimeout(() => {
-            alert("It's a tie!")
-        }, 10)
+            setTimeout(() => {
+                alert("It's a tie!")
+            }, 10)
         createNewHistoryItem("tie")
         endGame()
     }
@@ -114,21 +114,19 @@ function checkGameStatus(symbol) {
 function createNewHistoryItem(symbol) {
     const newHistoryItem = document.createElement("div")
     newHistoryItem.className = "historyItem"
-    newHistoryItem.dataset.winner = symbol
     gameHistory.appendChild(newHistoryItem)
-    
+    if (symbol === "tie") {
+        gameHistory.children[gameHistory.children.length - 1].innerText = `Game ${gameHistory.children.length}: Tie Game!`
+    }
+    else {
+        gameHistory.children[gameHistory.children.length - 1].innerText = `Game ${gameHistory.children.length}: ${symbol} won!`
+    }
 }
 
 function endGame() {
     squares.forEach(square => disableSquare(square))
     updateCounterDisplays()
     turnDisplay.innerText = "Game Over!"
-    if (gameHistory.children[gameHistory.children.length - 1].dataset.winner === "tie") {
-        gameHistory.children[gameHistory.children.length - 1].innerText = `Game ${gameHistory.children.length}: Tie Game!`
-    }
-    else {
-        gameHistory.children[gameHistory.children.length - 1].innerText = `Game ${gameHistory.children.length}: ${gameHistory.children[gameHistory.children.length - 1].dataset.winner} won!`
-    }
     saveToLocalStorage()
 }
 
@@ -142,11 +140,6 @@ function saveToLocalStorage() {
     localStorage.setItem("xWins", xWins)
     localStorage.setItem("oWins", oWins)
     localStorage.setItem("ties", ties)
-
-    const history = []
-    for (let i = 0; i < gameHistory.children.length; i++) {
-        history.push(`${gameHistory.children[i].innerText}`)
-    }
-    localStorage.setItem("gameHistory", history)
+    localStorage.setItem("gameHistory", gameHistory.innerHTML)
 }
 
