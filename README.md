@@ -35,4 +35,5 @@ Bonus feature added: Local Storage
     Uses the browser's Window.localStorage property, which is an object
     Stores data in key value pairs that persists across page reloads and opening and closing tab/browser
     get/set data with localStorage.getItem, localStorage.setItem
+    https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
 To-do: better styling, online multiplayer (websockets)
