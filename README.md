@@ -32,7 +32,7 @@ To-do: local storage, better styling, future---> online multiplayer
 
 8/17
 Bonus feature added: Local Storage
-    Uses the browser's Window.localStorage property
+    Uses the browser's Window.localStorage property, which is an object
     Stores data in key value pairs that persists across page reloads and opening and closing tab/browser
     get/set data with localStorage.getItem, localStorage.setItem
 To-do: better styling, online multiplayer (websockets)
