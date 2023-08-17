@@ -143,3 +143,4 @@ function saveToLocalStorage() {
     localStorage.setItem("gameHistory", gameHistory.innerHTML)
 }
 
+//To-do, websockets?
