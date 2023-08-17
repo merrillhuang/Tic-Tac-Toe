@@ -25,6 +25,7 @@ const resetHistoryButton = document.querySelector("#resetHistory").addEventListe
     ties = 0
     gameHistory.innerHTML = "Game History"
     updateCounterDisplays()
+    newGame()
 })
 
 const squares = document.querySelectorAll(".square")
