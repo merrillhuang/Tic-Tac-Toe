@@ -7,7 +7,6 @@ const xWinsDisplay = document.querySelector("#xWins")
 const oWinsDisplay = document.querySelector("#oWins")
 const tiesDisplay = document.querySelector("#ties")
 const gameHistory = document.querySelector("#gameHistory")
-const winnerDisplay = document.querySelector("#winnerDisplay")
 
 const newGameButton = document.querySelector("#newgame").addEventListener("click", newGame)
 
@@ -67,7 +66,9 @@ function checkGameStatus(symbol) {
     (squares[0].innerText === symbol && squares[4].innerText === symbol && squares[8].innerText === symbol) || 
     (squares[2].innerText === symbol && squares[4].innerText === symbol && squares[6].innerText === symbol)    //diangonals
     ){
-        winnerDisplay.innerText = (`${symbol} won!`)
+        setTimeout(() => {
+            alert(`${symbol} won!`)
+        }, 5)
         if (symbol === "X") {
             xWins++
         }
@@ -86,7 +87,9 @@ function checkGameStatus(symbol) {
     })
     if (allFilled) {
         ties++
-        winnerDisplay.innerText = ("It's a tie!")
+        setTimeout(() => {
+            alert("It's a tie!")
+        }, 5)
         createNewHistoryItem("tie")
         endGame()
     }

@@ -18,10 +18,6 @@ body {
     align-items: center;
 }
 
-#winnerDisplay {
-    text-align: center;
-}
-
 #boardContainer {
     display: grid;
     grid-template-columns: 100px 100px 100px;
