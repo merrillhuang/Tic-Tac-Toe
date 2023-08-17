@@ -23,7 +23,7 @@ const resetHistoryButton = document.querySelector("#resetHistory").addEventListe
     xWins = 0
     oWins = 0
     ties = 0
-    gameHistory.innerHTML = ""
+    gameHistory.innerHTML = "Game History"
     updateCounterDisplays()
 })
 
