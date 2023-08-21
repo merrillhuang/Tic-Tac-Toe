@@ -38,6 +38,7 @@ squares.forEach((square) => {
 })
 
 const board = document.querySelector("#boardContainer").addEventListener("click", markClicked)
+board.addEventListener("hover", hover)
 
 const turnDisplay = document.querySelector("#turnDisplay")
 
@@ -50,9 +51,13 @@ function placeSymbol(e) {
 function changePlayer(symbol) {
     if (currentSymbol === "X") {
         currentSymbol = "O"
+        turnDisplay.style.background = "#6d71fb"
+        turnDisplay.style.color = "black"
     }
     else if (currentSymbol === "O") {
         currentSymbol = "X"
+        turnDisplay.style.background = "#5fbef8"
+        turnDisplay.style.color = "grey"
     }
     turnDisplay.innerText = `It's ${currentSymbol}'s turn!` 
 }
@@ -64,11 +69,18 @@ function newGame() {
         square.addEventListener("click", placeSymbol)
     })
     currentSymbol = "X"
+    turnDisplay.style.background = "#5fbef8"
+    turnDisplay.style.color = "grey"
     turnDisplay.innerText = "X goes first!"
 }
 
 function markClicked(e) {
     disableSquare(e.target)
+}
+
+function hover(e) {
+    if (e.target.className === "square")
+        e.target.innerText = symbol
 }
 
 function disableSquare(square) {

@@ -71,6 +71,8 @@ body {
 #right {
     width: 25%;
     text-align: center;
+    align-items: center;
+    justify-content: center;
     color: #c0c5da;
     margin-right: 15px;
 }
@@ -79,6 +81,37 @@ body {
     display: flex;
     justify-content: space-between;
     margin-top: 15px;
+    
+}
+
+#xWins, #oWins, #ties {
+    padding: 15px;
+    border-radius: 10px;
+}
+
+#xWins {
+    background: #5fbef8;
+    color: grey;
+}
+
+#oWins {
+    background: #6d71fb;
+    color: black;
+}
+
+#ties{
+    background:#248067;
+}
+
+#turnDisplay {
+    align-items: center;
+    font-size: 22px;
+    margin-top: 50%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    background-color: #5fbef8;
+    color: grey;
+    border-radius: 10px;
 }
 
 .clickable {
