@@ -58,3 +58,5 @@ UI tries to emulate this theme: https://webflow.com/templates/html/dashdark-x-de
 Added hover/preview effects for the board
 * Using mouseEnter to change things when mouse pointer enters a square and mouseOut to revert the square back to default state
 * Didn't use mouseOver, was having issues changing back to original state when no longer mousing over
+
+Would really like to pursue adding multiplayer in the future with FireBase.
