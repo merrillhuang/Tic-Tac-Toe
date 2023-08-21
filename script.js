@@ -2,6 +2,7 @@ let currentSymbol = "X"
 let xWins = 0
 let oWins = 0
 let ties = 0
+let gameCounter = 1
 
 const xWinsDisplay = document.querySelector("#xWins")
 const oWinsDisplay = document.querySelector("#oWins")
@@ -12,17 +13,19 @@ if (localStorage.length != 0) {
     xWins = localStorage.getItem("xWins")
     oWins = localStorage.getItem("oWins")
     ties = localStorage.getItem("ties")
+    gameCounter = localStorage.getItem("gameCounter")
     gameHistory.innerHTML = localStorage.getItem("gameHistory")
     updateCounterDisplays()
 }
 
-const newGameButton = document.querySelector("#newgame").addEventListener("click", newGame)
+const newGameButton = document.querySelector("#newGame").addEventListener("click", newGame)
 
 const resetHistoryButton = document.querySelector("#resetHistory").addEventListener("click", () => {
     localStorage.clear()
     xWins = 0
     oWins = 0
     ties = 0
+    gameCounter = 1
     gameHistory.innerHTML = "Game History"
     updateCounterDisplays()
     newGame()
@@ -111,17 +114,20 @@ function checkGameStatus(symbol) {
         endGame()
     }
 }
-
 function createNewHistoryItem(symbol) {
     const newHistoryItem = document.createElement("div")
     newHistoryItem.className = "historyItem"
+    if (gameHistory.children.length === 10) {
+        gameHistory.removeChild(gameHistory.firstElementChild)
+    }
     gameHistory.appendChild(newHistoryItem)
     if (symbol === "tie") {
-        gameHistory.children[gameHistory.children.length - 1].innerText = `Game ${gameHistory.children.length}: Tie Game!`
+        gameHistory.children[gameHistory.children.length - 1].innerText = `Game ${gameCounter}: Tie Game!`
     }
     else {
-        gameHistory.children[gameHistory.children.length - 1].innerText = `Game ${gameHistory.children.length}: ${symbol} won!`
+        gameHistory.children[gameHistory.children.length - 1].innerText = `Game ${gameCounter}: ${symbol} won!`
     }
+    gameCounter++
 }
 
 function endGame() {
@@ -141,7 +147,6 @@ function saveToLocalStorage() {
     localStorage.setItem("xWins", xWins)
     localStorage.setItem("oWins", oWins)
     localStorage.setItem("ties", ties)
+    localStorage.setItem("gameCounter", gameCounter)
     localStorage.setItem("gameHistory", gameHistory.innerHTML)
 }
-
-//To-do, websockets?

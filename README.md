@@ -37,3 +37,6 @@ Bonus feature added: Local Storage
     get/set data with localStorage.getItem, localStorage.setItem
     https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
 To-do: better styling, online multiplayer (websockets)
+
+8/21
+UI tries to emulate this theme: https://webflow.com/templates/html/dashdark-x-devlink-website-template

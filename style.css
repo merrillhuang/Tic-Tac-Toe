@@ -1,5 +1,6 @@
 body {
-    background-color: aqua;
+    background: linear-gradient(#101936, 40%, #6c71ff );
+    font-family: 'Bricolage Grotesque', sans-serif;
 }
 
 #bigContainer {
@@ -9,8 +10,19 @@ body {
 }
 
 #left {
+    display: flex;
+    flex-direction: column;
     width: 20%;
     text-align: center;
+    color: #c0c5da;
+}
+
+#newGame, #resetHistory {
+    background-color: #6d71fb;
+    color: #c0c5da;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 20px;
+    margin: 15px 0px 15px 15px;
 }
 
 #center {
@@ -40,11 +52,13 @@ body {
 #right {
     width: 20%;
     text-align: center;
+    color: #c0c5da;
 }
 
 #winContainer {
     display: flex;
     justify-content: space-between;
+    margin-top: 15px;
 }
 
 .clickable {
