@@ -40,3 +40,6 @@ To-do: better styling, online multiplayer (websockets)
 
 8/21
 UI tries to emulate this theme: https://webflow.com/templates/html/dashdark-x-devlink-website-template
+Added hover/preview effects for the board
+    Using mouseEnter to change things when mouse pointer enters a square
+    and mouseOut to revert the square back to default state
