@@ -35,10 +35,12 @@ const squares = document.querySelectorAll(".square")
 squares.forEach((square) => {
     square.classList.add("clickable")
     square.addEventListener("click", placeSymbol)
+    square.addEventListener("mouseenter", hovering)
+    square.addEventListener("mouseout", notHovering)
 })
 
-const board = document.querySelector("#boardContainer").addEventListener("click", markClicked)
-board.addEventListener("hover", hover)
+const board = document.querySelector("#boardContainer")
+board.addEventListener("click", markClicked)
 
 const turnDisplay = document.querySelector("#turnDisplay")
 
@@ -76,11 +78,19 @@ function newGame() {
 
 function markClicked(e) {
     disableSquare(e.target)
+    e.target.removeEventListener("mouseenter", hovering)
+    e.target.removeEventListener("mouseout", notHovering)
+    e.target.style.background = "white"
 }
 
-function hover(e) {
-    if (e.target.className === "square")
-        e.target.innerText = symbol
+function hovering(e) {
+    e.target.classList.add("hovering")
+    e.target.innerText = currentSymbol
+}
+
+function notHovering(e) {
+    e.target.classList.remove("hovering")
+    e.target.innerText = ""
 }
 
 function disableSquare(square) {

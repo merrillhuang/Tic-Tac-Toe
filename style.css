@@ -117,3 +117,7 @@ body {
 .clickable {
     background-color: black;
 }
+
+.hovering {
+    background-color: red;
+}
