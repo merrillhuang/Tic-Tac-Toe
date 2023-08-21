@@ -4,25 +4,18 @@ A Game of Tic Tac Toe
 Wireframe
 tic-tac-toe-wireframe.png
 
-three columns for body
-
-grid container for board - 9 square divs
-
-new game button and game history in first column, blocks
-
-right column has win and tie counters in a flex container in a row
-
-turn display for whose turn it is in right column
+*three columns for body
+*grid container for board - 9 square divs
+*new game button and game history in first column, blocks
+*right column has win and tie counters in a flex container in a row
+*turn display for whose turn it is in right column
 
 Planned features
 
 for MVP
-
-logic for game win/tie
-
-    \tnew game button
-    
-    \tmark elements as clickable or not
+1.logic for game win/tie
+2.new game button
+3.mark elements as clickable or not
 
 extra features
     
