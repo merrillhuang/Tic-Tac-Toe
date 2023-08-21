@@ -116,7 +116,7 @@ function checkGameStatus(symbol) {
 }
 function createNewHistoryItem(symbol) {
     const newHistoryItem = document.createElement("div")
-    newHistoryItem.className = "historyItem"
+    newHistoryItem.classList.add("historyItem")
     if (gameHistory.children.length === 10) {
         gameHistory.removeChild(gameHistory.firstElementChild)
     }
