@@ -39,14 +39,14 @@ squares.forEach((square) => {
     square.addEventListener("mouseout", notHovering)
 })
 
-const board = document.querySelector("#boardContainer")
-board.addEventListener("click", markClicked)
-
 const turnDisplay = document.querySelector("#turnDisplay")
+
+const body = document.querySelector("body")
 
 function placeSymbol(e) {
     e.target.innerText = currentSymbol
     changePlayer(currentSymbol)
+    disableSquare(e.target)
     checkGameStatus(e.target.innerText)
 }
 
@@ -69,18 +69,13 @@ function newGame() {
         square.innerText = ""
         square.classList.add("clickable")
         square.addEventListener("click", placeSymbol)
+        square.addEventListener("mouseenter", hovering)
+        square.addEventListener("mouseout", notHovering)
     })
     currentSymbol = "X"
     turnDisplay.style.background = "#5fbef8"
     turnDisplay.style.color = "grey"
     turnDisplay.innerText = "X goes first!"
-}
-
-function markClicked(e) {
-    disableSquare(e.target)
-    e.target.removeEventListener("mouseenter", hovering)
-    e.target.removeEventListener("mouseout", notHovering)
-    e.target.style.background = "white"
 }
 
 function hovering(e) {
@@ -96,6 +91,9 @@ function notHovering(e) {
 function disableSquare(square) {
     square.classList.remove("clickable")
     square.removeEventListener("click", placeSymbol)
+    square.removeEventListener("mouseenter", hovering)
+    square.removeEventListener("mouseout", notHovering)
+    square.classList.remove("hovering")
 }
 
 function checkGameStatus(symbol) {
@@ -118,7 +116,7 @@ function checkGameStatus(symbol) {
             oWins++
         }
         createNewHistoryItem(symbol)
-        endGame(symbol)
+        endGame()
         return
     }
     let allFilled = true
@@ -156,6 +154,7 @@ function endGame() {
     squares.forEach(square => disableSquare(square))
     updateCounterDisplays()
     turnDisplay.innerText = "Game Over!"
+    turnDisplay.style.background = ""
     saveToLocalStorage()
 }
 
