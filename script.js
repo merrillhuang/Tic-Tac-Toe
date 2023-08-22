@@ -10,6 +10,8 @@ const tiesDisplay = document.querySelector("#ties")
 const gameHistory = document.querySelector("#gameHistory")
 const board = document.querySelector("#boardContainer")
 const turnDisplay = document.querySelector("#turnDisplay")
+let turnDisplayColor = "#5fbef8"
+let turnDisplayFontColor = "grey"
 
 if (localStorage.length != 0) {
     xWins = localStorage.getItem("xWins") !== null ? localStorage.getItem("xWins") : xWins
@@ -20,6 +22,8 @@ if (localStorage.length != 0) {
     board.innerHTML = localStorage.getItem("boardState") !== null ? localStorage.getItem("boardState").trim() : board.innerHTML
     currentSymbol = localStorage.getItem("currentSymbol") !== null ? localStorage.getItem("currentSymbol") : currentSymbol
     turnDisplay.innerText = localStorage.getItem("turnDisplay") !== null ? localStorage.getItem("turnDisplay") : turnDisplay.innerText
+    turnDisplay.style.background = localStorage.getItem("turnDisplayColor") !== null ? localStorage.getItem("turnDisplayColor") : turnDisplayColor
+    turnDisplay.style.color = localStorage.getItem("turnDisplayFontColor") !== null ? localStorage.getItem("turnDisplayFontColor") : turnDisplayFontColor
     updateCounterDisplays()
 }
 
@@ -54,6 +58,8 @@ function placeSymbol(e) {
     localStorage.setItem("boardState", board.innerHTML)
     localStorage.setItem("currentSymbol", currentSymbol)
     localStorage.setItem("turnDisplay", turnDisplay.innerText)
+    localStorage.setItem("turnDisplayColor", turnDisplay.style.background)
+    localStorage.setItem("turnDisplayFontColor", turnDisplay.style.color)
     checkGameStatus(e.target.innerText)
 }
 
@@ -166,6 +172,8 @@ function endGame() {
     localStorage.removeItem("boardState")
     localStorage.removeItem("turnDisplay")
     localStorage.removeItem("currentSymbol")
+    localStorage.removeItem("turnDisplayColor")
+    localStorage.removeItem("turnDisplayFontColor")
     saveToLocalStorage()
 }
 
