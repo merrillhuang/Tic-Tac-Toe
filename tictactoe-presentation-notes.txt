@@ -1,0 +1,20 @@
+Basic Runthrough of features
+Show hover effect, note that it has a preview of the letter you're about to place
+
+After clicking, no longer is modified on hover, and can't be clicked again
+
+Side div that shows whose turn it is, changes text and color according to which symbol is being placed
+
+AFter game ends, alert for who won/tie, who won is added to game history (show that only the last ten wins are remembered), win counters are updated, all unclicked squares become unclickable and unhoverable
+
+New game button, starts new game, makes everything clickable and hoverable again
+
+Demonstrate local storage feature, can close tab, refresh page, and history and counters stay the same
+How it works, uses browser's local storage, browser's window has a storage object, can be used to save data in key value pairs.
+Show code, endgame function that saves certain data of certain variables that are tracked use setItem
+on page/script load, use getItem to load data and update UI accordingly
+
+Show hover code. On mouseenter (detects when mouse pointer enters certain element), applies hovering class with corresponding css to turn background red, makes the innertext the current symbol temporarily. On mouseout (detects when mouse pointer leaves certain element), removes hovering class and temp innertext.
+Didn't use mouseover event, because after mousing over once, would change the styling and innertext permanently, so used two listeners for entering and leaving instead. Not sure if best way, but this is how i made it work.
+
+Want to add online multiplayer. Looked into Firebase. Rough idea: Use realtime database to store the state of the board and use it to update each clients view, probably would store similar data that is being saved in localstorage now. Would like to explore more.

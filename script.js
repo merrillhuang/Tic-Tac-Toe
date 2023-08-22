@@ -168,6 +168,6 @@ function saveToLocalStorage() {
     localStorage.setItem("xWins", xWins)
     localStorage.setItem("oWins", oWins)
     localStorage.setItem("ties", ties)
-    localStorage.setItem("gameCounter", gameCounter)
-    localStorage.setItem("gameHistory", gameHistory.innerHTML)
+    localStorage.setItem("gameCounter", gameCounter) //number of games played this session
+    localStorage.setItem("gameHistory", gameHistory.innerHTML) //gameHistory information
 }
