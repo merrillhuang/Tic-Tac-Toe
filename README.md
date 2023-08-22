@@ -60,3 +60,5 @@ Added hover/preview effects for the board
 * Didn't use mouseOver, was having issues changing back to original state when no longer mousing over
 
 Would really like to pursue adding multiplayer in the future with FireBase.
+
+Rough idea: Use realtime database to store the state of the board and use it to update each clients view, probably would store similar data that is being saved in localstorage now.
