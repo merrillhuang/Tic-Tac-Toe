@@ -8,13 +8,18 @@ const xWinsDisplay = document.querySelector("#xWins")
 const oWinsDisplay = document.querySelector("#oWins")
 const tiesDisplay = document.querySelector("#ties")
 const gameHistory = document.querySelector("#gameHistory")
+const board = document.querySelector("#boardContainer")
+const turnDisplay = document.querySelector("#turnDisplay")
 
 if (localStorage.length != 0) {
-    xWins = localStorage.getItem("xWins")
-    oWins = localStorage.getItem("oWins")
-    ties = localStorage.getItem("ties")
-    gameCounter = localStorage.getItem("gameCounter")
-    gameHistory.innerHTML = localStorage.getItem("gameHistory")
+    xWins = localStorage.getItem("xWins") !== null ? localStorage.getItem("xWins") : xWins
+    oWins = localStorage.getItem("oWins") !== null ? localStorage.getItem("oWins") : oWins
+    ties = localStorage.getItem("ties") !== null ? localStorage.getItem("ties") : ties
+    gameCounter = localStorage.getItem("gameCounter") !== null ? localStorage.getItem("gameCounter") : gameCounter
+    gameHistory.innerHTML = localStorage.getItem("gameHistory") !== null ? localStorage.getItem("gameHistory") : gameHistory.innerHTML
+    board.innerHTML = localStorage.getItem("boardState") !== null ? localStorage.getItem("boardState").trim() : board.innerHTML
+    currentSymbol = localStorage.getItem("currentSymbol") !== null ? localStorage.getItem("currentSymbol") : currentSymbol
+    turnDisplay.innerText = localStorage.getItem("turnDisplay") !== null ? localStorage.getItem("turnDisplay") : turnDisplay.innerText
     updateCounterDisplays()
 }
 
@@ -33,20 +38,22 @@ const resetHistoryButton = document.querySelector("#resetHistory").addEventListe
 
 const squares = document.querySelectorAll(".square")
 squares.forEach((square) => {
+    if (square.innerText === "") {
     square.classList.add("clickable")
     square.addEventListener("click", placeSymbol)
     square.addEventListener("mouseenter", hovering)
     square.addEventListener("mouseout", notHovering)
+    }
 })
 
-const turnDisplay = document.querySelector("#turnDisplay")
-
-const body = document.querySelector("body")
 
 function placeSymbol(e) {
     e.target.innerText = currentSymbol
     changePlayer(currentSymbol)
     disableSquare(e.target)
+    localStorage.setItem("boardState", board.innerHTML)
+    localStorage.setItem("currentSymbol", currentSymbol)
+    localStorage.setItem("turnDisplay", turnDisplay.innerText)
     checkGameStatus(e.target.innerText)
 }
 
@@ -134,6 +141,7 @@ function checkGameStatus(symbol) {
         endGame()
     }
 }
+
 function createNewHistoryItem(symbol) {
     const newHistoryItem = document.createElement("div")
     newHistoryItem.classList.add("historyItem")
@@ -155,6 +163,9 @@ function endGame() {
     updateCounterDisplays()
     turnDisplay.innerText = "Game Over!"
     turnDisplay.style.background = ""
+    localStorage.removeItem("boardState")
+    localStorage.removeItem("turnDisplay")
+    localStorage.removeItem("currentSymbol")
     saveToLocalStorage()
 }
 
