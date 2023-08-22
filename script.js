@@ -39,10 +39,10 @@ const resetHistoryButton = document.querySelector("#resetHistory").addEventListe
 const squares = document.querySelectorAll(".square")
 squares.forEach((square) => {
     if (square.innerText === "") {
-    square.classList.add("clickable")
-    square.addEventListener("click", placeSymbol)
-    square.addEventListener("mouseenter", hovering)
-    square.addEventListener("mouseout", notHovering)
+        square.classList.add("clickable")
+        square.addEventListener("click", placeSymbol)
+        square.addEventListener("mouseenter", hovering)
+        square.addEventListener("mouseout", notHovering)
     }
 })
 
